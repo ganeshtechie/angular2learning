@@ -1,0 +1,48 @@
+<div class="container border border-primary">
+
+  <div class="row">
+    <div class="col">
+
+      <form class="form-inline">
+        <label class="mr-sm-2" for="searchquery">{{ configuration.labelName }}</label>
+
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="searchquery" placeholder="">
+
+        <button type="submit" class="btn btn-primary" (click)="loadTags()">Search</button>
+
+        <button [hidden]="!configuration.showFilters" type="submit" class="btn btn-outline-danger" (click)="showFilters()">
+          <span [hidden]="prop.whereConditions.length > 0">Apply Filter(s) <i class="fa fa-plus" aria-hidden="true"></i></span>
+          <span [hidden]="prop.whereConditions.length == 0">Modify Filter(s) <i class="fa fa-pencil" aria-hidden="true"></i></span>
+        </button>
+
+        <button [hidden]="prop.whereConditions.length == 0" type="submit" class="btn btn-danger" (click)="clearFilters()">Clear Filter(s)</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  <div class="row" [hidden]="!tagfilterHidden">
+    <div class="col">
+      <app-multiselect [prop]="prop" [fieldName]="'items'"></app-multiselect>
+    </div>
+  </div>
+
+  <div class="row" [hidden]="tagfilterHidden">
+    <div class="col">
+        <app-tagfilter [prop]="prop" (onAfterFilterApplied)="closePopup()"></app-tagfilter>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary" (click)="finishSelection()">Finished</button>
+      <button class="btn btn-outline-secondary" (click)="cancelSelection()">Cancel</button>
+    </div>
+  </div>
+
+</div>
+
+
+        
+     

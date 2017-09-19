@@ -1,0 +1,35 @@
+<div class="container jq-root">
+
+  <div class="row">
+    <div class="col">
+
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary tagelement" (click)="removeItem(item)" *ngFor="let item of this.usersearchService.selectedItems"><i  class="fa" [ngClass]="{'fa-user': item.type == 'user', 'fa-users': item.type == 'group' }" aria-hidden="true"></i>{{ item.title }}</button>
+        </div>
+      </div>
+
+      <form class="form-inline">
+        <input type="text" class="form-control jq-searchquery" />
+        <button class="btn btn-primary" (click)="search($event)"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </form>
+
+      <div class="row">
+
+        <div class="col searchlist">
+
+          <ul class="list-group jq-search-list" >
+            <li *ngFor="let item of this.usersearchService.searchResults" class="list-group-item" [attr.data-filter]="item.title.toLowerCase()">{{ item.title }} 
+                <i  class="fa" [ngClass]="{'fa-user': item.type == 'user', 'fa-users': item.type == 'group' }" aria-hidden="true"></i>
+              <button class="btn btn-outline-primary btn-sm" (click)="selectItem(item)">Select</button>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

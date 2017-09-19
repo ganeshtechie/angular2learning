@@ -1,0 +1,10 @@
+<div class="container border border-primary rounded">
+
+    <app-togglebutton *ngFor="let item of prop[fieldName]" [fieldName]="'name'" [prop]="item"></app-togglebutton>
+
+
+    <div class="container">
+        <p class="font-weight-normal text-lowercase text-center">{{ prop[fieldName].length }} result(s)</p>
+    </div>
+
+</div>

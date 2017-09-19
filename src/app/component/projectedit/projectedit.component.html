@@ -1,0 +1,17 @@
+<p>
+  projectedit works!
+</p>
+
+
+<input type="text" [(ngModel)]="searchquery" />
+
+<button (click)="search()">Search</button>
+
+<ol>
+  <li *ngFor="let t of tagState.$subject.getValue()" (click)="removeTag(t)"> {{ t.name }}</li>
+</ol>
+
+
+<ul>
+  <li *ngFor="let t of tags" (click)="selectTag(t)">{{ t.name }}</li>
+</ul>

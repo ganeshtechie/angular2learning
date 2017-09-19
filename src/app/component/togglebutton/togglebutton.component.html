@@ -1,0 +1,7 @@
+<button type="button" (click)="toggle()"  class="btn"
+  [ngClass]="{ 'btn-primary': prop.selected == true, 'btn-outline-primary': prop.selected == false }">
+  {{ prop[fieldName] }} 
+
+  <i [hidden]="prop.selected" class="fa fa-plus" aria-hidden="true"></i>
+  <i [hidden]="!prop.selected" class="fa fa-minus" aria-hidden="true"></i>
+</button>

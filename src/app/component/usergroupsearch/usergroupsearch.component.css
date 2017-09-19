@@ -1,0 +1,8 @@
+.searchlist{
+    max-height: 300px;
+    overflow: auto;
+}
+
+.tagelement{
+    margin: 2.5px;
+}

@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="row" *ngFor="let _state of this.state">
+    <div class="col">
+
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4" class="col-form-label">{{ _state.config.labelName }} </label>
+          </div>
+          <div class="form-group col-md-6">
+            <button class="btn btn-outline-primary" (click)="search(_state)">Add New</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col">
+            <button type="button" *ngFor="let item of _state.service.selectedTags" (click)="remove(_state, item)"class="btn btn-primary tagelement">{{ item.name }}</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" data-role="modal" aria-labelledby="tagFilterModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="tagFilterModal">Select Tag(s)</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <ng-template [ngIf]="currentConfiguration">
+
+            <app-tagsearch (finish)="closeModal($event)" (cancel)="closeModal($event)" [configuration]="currentConfiguration" [prop]="currentServiceInstance"></app-tagsearch>
+
+          </ng-template>
+          
+        </div>
+      </div>
+    </div>
+  </div>

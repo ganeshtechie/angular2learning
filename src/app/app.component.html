@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<div>
+
+  <!-- <app-tagsearchgroup *ngIf="tagConfigurations" [tagsearchgroupService]="tagSearchGroupService" [tagConfigurations]="tagConfigurations"></app-tagsearchgroup> -->
+
+  <app-usergroupsearch [context]="projectAssignee" [contextId]="projectId"></app-usergroupsearch>
+  
+<button (click)="changeContextId(10)">Change Context ID</button>
+</div>
